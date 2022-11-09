@@ -20,6 +20,17 @@ gradeF = []
 for item in scores:
     if item < 60:
         gradeF.append(item)
-print("不及格课程门数:", len(gradeF))
-print("不及格成绩分别为:", end="")
-print(*gradeF, sep=',')
+
+if len(gradeF) > 0:
+    print("不及格课程门数:", len(gradeF))
+    print("不及格成绩分别为:", end="")
+    
+    # 打印不及格分数，常规写法：
+    for i in range(len(gradeF)):
+        if i == len(gradeF)-1:
+            print(gradeF[i], end="")
+        else:
+            print(gradeF[i], end=",")
+    # 另一种写法如下，更加简洁，供参考！
+    # print(*gradeF, sep=',')
+    
