@@ -1,0 +1,9 @@
+Mary,280
+Kate,300
+Rose,350
+Jack,320
+Tomy,400
+Jerry,385
+Mini,308
+Yorky,295
+Mike,305

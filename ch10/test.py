@@ -1,0 +1,13 @@
+f1 = open("ch10/gushi.txt",'rb')
+f1.seek(10)
+w1 = f1.tell() 
+f1.seek(-5, 1)
+w2 = f1.tell()
+f1.seek(0,2)
+w3 = f1.tell()
+f1.seek(8)
+w4 = f1.tell()
+print(w1, w2, w3, w4)
+f1.close()
+
+print(str(line[1:3]))

@@ -4,6 +4,9 @@
 
 提示: 若str(i*i).endswith(str(i))为真, 则i为同构数。
 
+5 --> 25  --> 5
+25 --> 625 --> 25
+
 n=6
 NO1:5
 NO2:6
@@ -18,13 +21,27 @@ if s.isdigit() & int(s)<10:
 else:
     print("输入错误！")
 
-cnt, i = 0, 1
-isomor_nums = []
+isomor_nums = []    # 用一个列表保存同构数
+
+# --------------------------
+# 写法一：
+cnt, i = 0, 2       # 初始化两个变量：计数器count、寻找同构数变量
+# 寻找同构数
 while cnt <= n:
     if str(i*i).endswith(str(i)):
-        isomor_nums.append(i)
-        cnt += 1        
-    i += 1
+        isomor_nums.append(i)   # 追加同构数
+        cnt += 1                # 计数器+1      
+    i += 1                      # 更新i
 
-for i in range(n):
-    print("NO%d:%d" %(i, isomor_nums[i]))
+# --------------------------
+# 写法二：
+## 寻找同构数
+# i = 2       # 初始化两个变量：计数器count、寻找同构数变量
+# while len(isomor_nums) <= n:
+#     if str(i*i).endswith(str(i)):
+#         isomor_nums.append(i)
+#     i += 1
+
+
+for i in range(1, n+1):         # i = 1, ..., n
+    print("NO%d:%d" %(i, isomor_nums[i-1]))

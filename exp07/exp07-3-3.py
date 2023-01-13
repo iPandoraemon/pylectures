@@ -12,20 +12,41 @@
 import string
 
 line = input("输入一行字符:")
+encrypted = []      # 创建一个__列表__用来保存加密后的字符
 
-upletter_codes = string.ascii_uppercase[::-1]
-lowletter_codes = string.ascii_lowercase[::-1]
-num_codes = string.digits[::-1]
-
-l_encrypted = []
+# ---------------------------------------------------------
+# 按题干提示的加密写法：
 for s in line:
+    # 总数-字符的编号=加密字符的编号
     if s.isdigit():
-        l_encrypted.append(num_codes[ord(s)-48])
+        encrypted.append(chr(105-ord(s)))   # ord('0')+ord('9')=ord('1')+ord('8')=105
     elif s.isupper():
-        l_encrypted.append(upletter_codes[ord(s)-65])
+        encrypted.append(chr(155-ord(s)))   # ord('A')+ord('Z')=155
     elif s.islower():
-        l_encrypted.append(lowletter_codes[ord(s)-97])
+        encrypted.append(chr(219-ord(s)))   # ord('a')+ord('z')=219
     else:
-        l_encrypted.append(s)
+        encrypted.append(s)                 # 其他字符
+# 以上为加密过程
+# ---------------------------------------------------------
 
-print("加密后的密文:"+"".join(l_encrypted))
+
+# ---------------------------------------------------------
+# 另一种加密写法：
+# 创建大写字母、小写字母、数字的“密码本”：实际上就是倒序
+# upletter_codes = string.ascii_uppercase[::-1]
+# lowletter_codes = string.ascii_lowercase[::-1]
+# num_codes = string.digits[::-1]
+
+# for s in line:
+#     if s.isdigit():
+#         encrypted.append(num_codes[ord(s)-48])
+#     elif s.isupper():
+#         encrypted.append(upletter_codes[ord(s)-65])
+#     elif s.islower():
+#         encrypted.append(lowletter_codes[ord(s)-97])
+#     else:
+#         encrypted.append(s)
+# 以上为加密过程
+# ---------------------------------------------------------
+
+print("加密后的密文:"+"".join(encrypted))

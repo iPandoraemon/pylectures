@@ -20,7 +20,10 @@ while True:
     if line == '#':
         break
     l_line = line.split(sep=':')
-    contacts.setdefault(l_line[0], l_line[1])
+
+    # 以下两种方法二选一，效果不一样
+    contacts.setdefault(l_line[0], l_line[1])  # 按第一次录入为准
+    # contacts[l_line[0]] = l_line[1]          # 按最后一次录入为准
 
 name = input("姓名:")
 print("电话:%s"%contacts.get(name, "没有"+name+"的电话！"))
